@@ -9,10 +9,10 @@ Import in the routine files as:
     import news_transfer_config as cfg
 '''
 
-################# User name and hashed password (leave as is) #################
+################# User name and hashed password #################
 
 user = 'newswebuser'
-password = 'UjQlRTVuWDclNW81ZDExeA=='
+password = 'xxxx' # INSERT HASHED PASSWORD HERE
 
 ################# Remote server access variables (leave as is) #################
 
