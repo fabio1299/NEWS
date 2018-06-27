@@ -1,1 +1,1 @@
-Place holder
+TP2M side of the NEWS link
