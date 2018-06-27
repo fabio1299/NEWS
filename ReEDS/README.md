@@ -1,1 +1,1 @@
-Place holder
+ReEDS side of the NEWS link
