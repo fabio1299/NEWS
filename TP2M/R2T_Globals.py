@@ -1,4 +1,3 @@
-
 """
 R2T_Globals.py
 """
@@ -8,6 +7,7 @@ import os
 import sys
 import errno
 from ast import literal_eval
+from time import time
 
 
 def init():
@@ -72,9 +72,9 @@ def init():
 
     # ProjectHome is the main folder were all the Environment folder is located
     ProjectHome = '/asrc/ecr/NEWS/LoopingPaper/'
-    # ProjectBase is the output folder were processing happens, by default it is the same
-    # as ProjectHome, but it can be redirected to allow for different runs and/or debugging
-    # redirection happens from the MainLink.py program passing the ProjectBase path with the
+    # ProjectBase is the output foder were processing happens, by defaul it is the same
+    # as ProjectHome, but it can be redirected to allow for differnt runs and/or debugging
+    # redirection happens from the MainLink.py porgram passing the ProjectBase path with the
     # -o option
     ProjectBase = '/asrc/ecr/NEWS/LoopingPaper/'
     ScriptBase='WBM_TP2M_'
@@ -268,25 +268,6 @@ def NamingLUT_Dict(f,t):
         return {}
     return d
 
-
-def CheckZip(file):
-    if os.path.isfile(file):
-        out=file
-    elif os.path.isfile(file + '.gz'):
-        out = file + '.gz'
-    else:
-        raise Exception('File {} not found'.format(file))
-    return out
-
-def mkdir_p(path):
-    try:
-        os.makedirs(path)
-    except OSError as exc:  # Python >2.5
-        if exc.errno == errno.EEXIST and os.path.isdir(path):
-            pass
-        else:
-            raise Exception('Path does not exist')
-
 def mkdir_p(path):
     try:
         os.makedirs(path)
@@ -296,7 +277,87 @@ def mkdir_p(path):
         else:
             raise
 
+
 def CurTime():
     ts = time.time()
     return pd.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
+"""""
+helpers for R2T_Capacity.py
+"""""
+
+def getTechs():
+    fuel=[]
+    cooling=[]
+    for i in tech_specs.keys():
+        if i[0] not in fuel:
+            fuel.append(i[0])
+        if i[1] not in cooling:
+            cooling.append(i[1])
+    return fuel,cooling
+
+MaxPlantID = 0
+
+def getNextIDs(capoutput):
+    ID = min(capoutput[capoutput['PlantCode']==0].index)
+    Code = 90000 + (ID - MaxPlantID)
+    return ID,Code
+
+def discharge(fuel,cooling,capacity):
+    # Calculates the water requiremetns for a given capacity
+    # based on the power plant fuel type and cooling technology
+    wpMW = tech_specs[fuel, cooling][3]
+    return wpMW*capacity
+
+
+"""""
+helpers for R2T_generation.py
+"""""
+
+
+def isLeap(y):
+    """
+    check if year is leap year
+    """
+    return (y % 4 == 0 and y % 100 != 0) or y % 400 == 0
+
+
+def days_in_month(m, y):
+    """
+    number of days in moneth
+    """
+    if m in ['Apr', 'Jun', 'Sep', 'Nov']: return 30
+    if m == 'Feb': return 29 if isLeap(y) else 28
+    return 31
+
+
+def days_in_season(s, y):
+    if s == 'summer': return 92
+    if s == 'fall': return 61
+    if s == 'winter': return 121 if isLeap(y) else 120
+    return 92  # spring
+
+"""""""""""""""
+save gen output
+"""""""""""""""
+def saveGen(genoutput, dir, extra=''):
+
+    OutFile = dir+"genoutput" + extra + ".csv"
+    print_if('Saving file {}'.format(OutFile))
+    genoutput.to_csv(OutFile)
+
+"""""""""""""""
+save cap output
+"""""""""""""""
+# ADD AltWater,Lat,Lon,OceanLake,CellID
+def saveCap(capoutput, dir, extra=''):
+
+    OutFile=dir+"capoutput" + extra + ".csv"
+    print_if('Saving file {}'.format(OutFile))
+    capoutput.to_csv(OutFile,index=False)
+
+def saveEff(effoutput, dir, extra=''):
+
+    OutFile=dir+"effoutput" + extra + ".csv"
+    print_if('Saving file {}'.format(OutFile))
+    effoutput.to_csv(OutFile,index=False)
