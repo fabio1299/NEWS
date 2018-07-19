@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="//www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>NEWS Model Coupling Console</title>
+
+<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="/news_console/news_console.css" />
+<style type="text/css">
+</style>
+
+<!-- load jQuery -->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script> -->
+<script language="javascript" type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="//code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
+<!-- load NEWS Console JS -->
+<script language="javascript" type="text/javascript" src="/news_console/news_console.js"></script>
+
+</head>
+
+<body>
+
+<div id="container" style="width: 800px; font-family: Arial, Helvetica, sans-serif; float: left; font-size: medium;">
+	<div id="header" style="border: thin solid #000000; width: inherit; height: 78px; background-color: #FFFFCC;">
+	<table style="width: 100%">
+		<tr>
+			<td>
+		<a href="https://www.ccny.cuny.edu">
+		<img alt="CCNY Logo" height="75" width="188" src="https://central.ccny.cuny.edu/events/sp2/images/ccny_logo.jpg" class="no_border" /></a></td>
+			<td><a href="//www.nsf.gov/">
+			<img alt="NSF Logo" class="no_border" height="74" src="http://earthatlas.sr.unh.edu/images/nsf_logo.gif" width="74" /></a></td>
+			<td style="font-weight: bold">NSF NEWS Project:<br />
+			The National Energy-Water System Assessment Framework<br />
+			<a href="//nsf.gov/awardsearch/showAward?AWD_ID=1360445" style="font-size:10pt;" target="_blank">Lean more...</a>
+			</td>
+		</tr>
+	</table>
+	</div>
+	<div id="title" style="margin: 25px; width: inherit; font-size: x-large; font-weight: bold; text-align: center;">
+		Model Coupling console</div>
+
+	<div id="simControls" style="width: inherit">
+		<form id="controls">
+		<input type="hidden" name="sid" />
+
+		<table class="table_top">
+			<tr>
+				<td style="width: 50%; font-size: 175%; background-color: #C4E1FF;" colspan="2" class="cell_header_white">
+					TP2M</td>
+				<td style="width: 50%; font-size: 175%; background-color: #FFE1C4;" colspan="2" class="cell_header_white">
+					ReEDS</td>
+			</tr>
+			<tr>
+				<td style="width: 25%" class="cell_normal_blue">
+					Status:</td>
+				<td style="width: 25%" class="cell_bold_blue">
+					<div id="status_tp2m">&nbsp;</div></td>
+				<td style="width: 25%" class="cell_normal_tan">
+					Status:</td>
+				<td style="width: 25%" class="cell_bold_tan">
+					<div id="status_reeds">&nbsp;</div></td>
+			</tr>
+			<tr>
+				<td style="width: 25%" class="cell_normal_blue">
+					Counter:</td>
+				<td style="width: 25%" class="cell_bold_blue">
+					<div id="counter_tp2m">&nbsp;</div></td>
+				<td style="width: 25%" class="cell_normal_tan">
+					Counter:</td>
+				<td style="width: 25%" class="cell_bold_tan">
+					<div id="counter_reeds">&nbsp;</div></td>
+			</tr>
+			<tr>
+				<td style="width: 25%" class="cell_normal_blue">
+					Run Information:</td>
+				<td style="width: 25%" class="cell_bold_blue">
+					None</td>
+				<td style="width: 25%" class="cell_normal_tan">
+					Run Information:</td>
+				<td style="width: 25%" class="cell_bold_tan">
+					None</td>
+			</tr>
+			<tr>
+				<td colspan="2" style="width: 50%" class="cell_header_blue">
+					<input id="run_first_tp2m" type="button" value="Run First" class="button_green" />
+						<br /><br />
+					<input id="run_second_tp2m" type="button" value="Run Second" class="button_green" />
+						<br /><br />
+					<input id="stop_tp2m" type="button" value="Stop" class="button_red" />
+				</td>
+				<td colspan="2" style="width: 50%" class="cell_header_tan">
+					<input id="run_first_reeds" type="button" value="Run First" class="button_green" />
+						<br /><br />
+					<input id="run_second_reeds" type="button" value="Run Second" class="button_green" />
+						<br /><br />
+					<input id="stop_reeds" type="button" value="Stop" class="button_red" />
+				</td>
+			</tr>
+			<tr>
+				<td id="block_row" colspan="4" class="cell_header_white" style="background-color: Pink">
+					<span id="monitoring1">In Monitoring mode now!<br /></span>
+					<input id="block_chkbox" type="checkbox" checked="checked" />
+					<span id="monitoring2">Uncheck to disable "Monitoring" mode by unblocking action buttons.</span>
+				</td>
+			</tr>
+		</table>
+		</form>
+	</div>
+
+	<div id="footer" style="font-size: small; margin-top: 10px;">
+		&copy; 2016 The City College of New York;
+		&copy; 2016 University of New Hampshire
+		<p style="margin-top: 0px; margin-left: 15px;">
+			Developed by <a href="mailto:alex.proussevitch@unh.edu?subject=NEWS model coupling console page">Alexander Prusevich</a> (AKA Proussevitch)
+			and <a href="mailto:stanley.glidden@unh.edu?subject=NEWS model coupling console page">Stanley Glidden</a>
+		</p>
+	</div>
+
+</div>
+
+<!--		Pop-up DIV elements -->
+
+<div id="dialog-note" title="Note from NEWS Console" style="text-align: center; color: Red"></div>
+
+</body>
+
+</html>

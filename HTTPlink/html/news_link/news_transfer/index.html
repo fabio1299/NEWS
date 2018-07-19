@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>NEWS Model Coupling Console</title>
+
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="news_console.css" />
+<style type="text/css">
+</style>
+
+<!-- load jQuery -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script> -->
+<script language="javascript" type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="https://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
+<!-- load NEWS Console JS -->
+<script language="javascript" type="text/javascript" src="news_transfer.js"></script>
+
+</head>
+
+<body>
+
+<div id="container" style="width: 1200px; font-family: Arial, Helvetica, sans-serif; float: left; font-size: medium;">
+	<div id="header" style="border: thin solid #000000; width: inherit; height: 78px; background-color: #FFFFCC;">
+	<table style="width: 100%">
+		<tr>
+			<td>
+		<a href="https://www.ccny.cuny.edu">
+		<img alt="CCNY Logo" height="75" width="188" src="https://central.ccny.cuny.edu/events/sp2/images/ccny_logo.jpg" class="no_border" /></a></td>
+			<td><a href="http://www.nsf.gov/">
+			<img alt="NSF Logo" class="no_border" height="74" src="http://earthatlas.sr.unh.edu/images/nsf_logo.gif" width="74" /></a></td>
+			<td style="font-weight: bold">NSF NEWS Project:<br />
+			The National Energy-Water System Assessment Framework<br />
+			<a href="http://nsf.gov/awardsearch/showAward?AWD_ID=1360445" style="font-size:10pt;" target="_blank">Lean more...</a>
+			</td>
+		</tr>
+	</table>
+	</div>
+	<div id="title" style="margin: 25px; width: inherit; font-size: x-large; font-weight: bold; text-align: center;">
+		Model Output Transfer Console</div>
+
+	<div id="simulationLog-tp2m"  style="font-size: 10pt;">Sasha</div>
+	<br />
+	<div id="simulationLog-reeds" style="font-size: 10pt;">Alex</div>
+
+
+	<div id="footer" style="font-size: small; margin-top: 10px;">
+		&copy; 2017 The City College of New York;
+		&copy; 2017 University of New Hampshire 		<p style="margin-top: 0px; margin-left: 15px;">
+			Developed by <a href="mailto:alex.proussevitch@unh.edu?subject=NEWS model coupling console page">Alexander Prusevich</a> (AKA Proussevitch)
+			and <a href="mailto:stanley.glidden@unh.edu?subject=NEWS model coupling console page">Stanley Glidden</a>
+		</p>
+	</div>
+
+</div>
+
+<!--		Pop-up DIV elements -->
+
+<div id="dialog-rename-tp2m" title="Rename Simulation" style="text-align: center">
+	<p style="margin-bottom:10px">Enter new name for this simulation</p>
+	<input id="newname-tp2m" size="12" type="text" value='' />
+</div>
+<div id="dialog-rename-reeds" title="Rename Simulation" style="text-align: center">
+	<p style="margin-bottom:10px">Enter new name for this simulation</p>
+	<input id="newname-reeds" size="12" type="text" value='' />
+</div>
+<div id="dialog-list"  title="List of Files" style="text-align: left"></div>
+
+</body>
+
+</html>

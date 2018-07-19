@@ -1,0 +1,31 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import cgi, os, sys
+import cgitb; cgitb.enable()
+
+#Just allows binary file to be uploaded to the system
+
+form_data = cgi.FieldStorage()
+file_data = form_data['file']
+if 'path' in form_data:
+  dir_path = form_data['path'].value
+else:
+  dir_path = 'data_exchange'
+
+dir_path = '/var/www/news_link/news_transfer/' + dir_path
+# dir_path = '/web/earthatlas/htdocs/news_transfer/' + dir_path
+
+try:
+  os.stat(dir_path)
+except:
+  os.mkdir(dir_path)
+
+
+if file_data.filename:
+  fn = os.path.basename(file_data.filename.replace("\\", "/" ))
+  fp = open(os.path.join(dir_path,fn), 'wb')
+  fp.write(file_data.file.read())
+  fp.close()
+print 'Content-type: text/html\n'
+
