@@ -3,7 +3,7 @@ R2T_capacity.py
 """
 
 from math import inf
-import R2T_Globals
+from . import R2T_Globals
 from R2T_Globals import *
 from R2T_readinputfiles import findNext, nextCell
 global ActivePCA

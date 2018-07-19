@@ -2,7 +2,7 @@
 R2T_generation.py
 """
 
-import R2T_Globals
+from . import R2T_Globals
 from R2T_Globals import *
 
 

@@ -14,7 +14,7 @@ import calendar
 import pandas as pd
 import subprocess
 
-import R2T_Globals
+from . import R2T_Globals
 from R2T_Globals import *
 
 #from datetime import datetime

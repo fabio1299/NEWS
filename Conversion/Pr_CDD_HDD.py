@@ -36,6 +36,7 @@ import rgis as rg
 import argparse
 from argparse import RawTextHelpFormatter
 import calendar
+from . import R2T_Globals
 from R2T_Globals import *
 
 

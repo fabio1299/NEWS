@@ -9,6 +9,7 @@ import gdxpds
 import pandas as pd
 import numpy as np
 import os
+from . import R2T_Globals
 import R2T_Globals
 from R2T_Globals import *
 

@@ -20,7 +20,7 @@ import Pr_CDD_HDD as chdd
 import Pr_PCA_WaterStats as WatStat
 from R2T_main import ReEDS2TP2M
 from R2T_getreedsinput import runs, createScripts
-import R2T_Globals
+from . import R2T_Globals
 from R2T_Globals import *
 from T2R_poweroutput import T2R_CalcAAC
 

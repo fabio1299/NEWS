@@ -2,7 +2,7 @@
 T2R_poweroutput.py
 """
 
-import R2T_Globals
+from . import R2T_Globals
 from R2T_Globals import *
 from R2T_readinputfiles import getCoordID,loadCoordID, \
                             getCoordStr,loadCombID

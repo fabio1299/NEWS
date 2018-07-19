@@ -18,7 +18,7 @@ from argparse import RawTextHelpFormatter
 import os
 import sys
 import glob
-import R2T_Globals
+from . import R2T_Globals
 from R2T_Globals import *
 
 

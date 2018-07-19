@@ -6,6 +6,7 @@ import subprocess as sp
 import glob
 import calendar
 import random
+from . import R2T_Globals
 from R2T_Globals import *
 if sys.version_info[0] < 3:
     from StringIO import StringIO
