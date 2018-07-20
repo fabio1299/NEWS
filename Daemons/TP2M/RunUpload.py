@@ -10,6 +10,7 @@ optionally calculates average of model results over GCMs
 # TODO Update to handle priming files
 
 import glob,os,subprocess,sys,time,argparse, socket
+from . import R2T_Globals
 from R2T_Globals import *
 import R2T_Globals
 from argparse import RawTextHelpFormatter
