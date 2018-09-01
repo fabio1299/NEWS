@@ -14,7 +14,7 @@ $(function() {
       renameDialog_reeds= $( "#dialog-rename-reeds"),
       listDialog	= $( "#dialog-list" ),
       checkTmOut	= null,
-      checkInterval	= 3600*1000,		// in milliseconds
+      checkInterval	= 1000*3600*1000,		// in milliseconds
       oldID	  = '',
       selID	  = '';
 
